@@ -6,6 +6,7 @@ let circle = [0,0,0,0,0,0,0,0,0]
 let cross = [0,0,0,0,0,0,0,0,0]
 let gamers = [circle, cross]
 let final = false
+let startButton = document.querySelector(".start")
 function CheckSum(base){
     let first = base[0]+base[1]+base[2]
     let second = base[3]+base[4]+base[5]
@@ -41,6 +42,7 @@ function ClickButton(classes, index){
         if (CheckSum(gamers[i])){
             final = true
             DisableAll()
+            startButton.classList.add("block")
         }
     }
     buttons[index].disabled = true
@@ -49,8 +51,22 @@ for (let i=0; i<buttons.length; i++){
     buttons[i].addEventListener("click", ()=>{
         ClickButton(classes, i)
         if (final){
-            // document.querySelector(".final span") = classes
             document.querySelector(".final").classList.add("block")
         }
     })
 }
+function StartAgain(){
+    for (let i=0; i<buttons.length; i++){
+       buttons[i].disabled = false
+       buttons[i].classList.remove("circle")
+       buttons[i].classList.remove("cross")
+    }
+    document.querySelector(".final").classList.remove("block")
+    startButton.classList.remove("block")
+    circle = [0,0,0,0,0,0,0,0,0]
+    cross = [0,0,0,0,0,0,0,0,0]
+    gamers = [circle, cross]
+    final = false
+    switcher = true
+}
+startButton.addEventListener("click", StartAgain)
