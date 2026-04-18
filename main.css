@@ -20,7 +20,6 @@ h1{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2px;
-    border: 1px solid #000000;
     border-radius: 3px;
 }
 .play-field_item{
@@ -35,34 +34,34 @@ h1{
     transition: all 0.3s ease-out;
 }
 .play-field_item:not(:disabled):hover{
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgb(153, 230, 252);
 }
 .cross::before,
 .cross::after{
     content: "";
     position: absolute;
-    width: 3px;
+    width: 10px;
     height: 80%;
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgb(0, 208, 252);
     top: 10%;
 }
 .cross::before{
-    right: 49%;
+    right: 46%;
     transform: rotate(45deg);
 }
 .cross::after{
-    left: 49%;
+    left: 46%;
     transform: rotate(-45deg);
 }
 .circle::after{
     content: "";
     position: absolute;
-    top: 10%;
+    top: 8%;
     left: 25%;
-    width: 55px;
-    height: 55px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
-    border: 3px solid rgba(0,0,0,0.2);
+    border: 10px solid rgb(253,70,85);
 }
 .final{
     width: 100%;
