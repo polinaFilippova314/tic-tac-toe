@@ -13,7 +13,19 @@
     <h1>Play with a friend</h1>
 </header>
 <main class="main">
+    <section class="count">
+        <div class="count-item cross">
+            <div class="number">0</div>
+        </div>
+        <div class="count-item circle">
+            <div class="number">0</div>
+        </div>
+    </section>
     <section class="play-field">
+        <div class="border vertical"></div>
+        <div class="border vertical"></div>
+        <div class="border horizontal"></div>
+        <div class="border horizontal"></div>
         <button class="play-field_item" id="1"></button>
         <button class="play-field_item" id="2"></button>
         <button class="play-field_item" id="3"></button>
@@ -25,7 +37,7 @@
         <button class="play-field_item" id="9"></button>
     </section>
     <button class="start">Start again</button>
-    <h2 class="final">Congraulations!</h2>
+    <h2 class="final">Congratulations! <span id="winner"></span>'ve won</h2>
 </main>
 <script src="main.js"></script>
 </body>

@@ -14,13 +14,68 @@ h1{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+.count{
+    position: absolute;
+    top: 0;
+    right: 20%;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.count-item{
+    position: relative;
+    padding-left: 40px;
+}
+.number{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+.count-item.cross{
+    margin-bottom: 15px;
+}
+.circle .number{
+    color: rgb(0, 208, 252);
+}
+.cross .number{
+    color: rgb(253,70,85);
+}
+.count-item.circle::before,
+.count-item.cross:before,
+.count-item.cross::after{
+    content: "";
+    position: absolute;
+    top: -3px;
+}
+.count-item.cross::before,
+.count-item.cross::after{
+    width: 5px;
+    height: 25px;
+    background-color: rgb(0, 208, 252);
+}
+.count-item.cross::before{
+    left: 11px;
+    transform: rotate(45deg);
+}
+.count-item.cross::after{
+    left: 12px;
+    transform: rotate(-45deg);
+}
+.count-item.circle::before{
+    left: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 5px solid rgb(253,70,85);
 }
 .play-field{
-    width: 400px;
+    width: 380px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
+    gap: 8px;
     border-radius: 3px;
+    position: relative;
 }
 .play-field_item{
     background: none;
@@ -28,16 +83,14 @@ h1{
     width: 100%;
     height: 80px;
     position: relative;
-    border: 1px solid #000000;
-    border-radius: 3px;
     cursor: pointer;
     transition: all 0.3s ease-out;
 }
 .play-field_item:not(:disabled):hover{
-    background-color: rgb(153, 230, 252);
+    background-color: rgba(153, 230, 252, 0.5);
 }
-.cross::before,
-.cross::after{
+.play-field .cross::before,
+.play-field .cross::after{
     content: "";
     position: absolute;
     width: 10px;
@@ -45,15 +98,15 @@ h1{
     background-color: rgb(0, 208, 252);
     top: 10%;
 }
-.cross::before{
+.play-field .cross::before{
     right: 46%;
     transform: rotate(45deg);
 }
-.cross::after{
+.play-field .cross::after{
     left: 46%;
     transform: rotate(-45deg);
 }
-.circle::after{
+.play-field .circle::after{
     content: "";
     position: absolute;
     top: 8%;
@@ -72,10 +125,45 @@ h1{
 .start{
     display:none;
     margin-top: 30px;
-    background: none;
-    border: 1px solid #456354;
     border-radius: 25px;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    background-color: rgba(153, 230, 252, 0.9);
+    color: #ffffff;
+    transition: all .3s ease-out;
+    cursor: pointer;
+    border: 1px solid rgb(153, 230, 252)
+}
+.start:hover{
+    opacity: 0.7;
 }
 .block{
     display: block;
+}
+.border{
+    position: absolute;
+    background-color: rgb(153, 230, 252);
+    border-radius: 35px;
+}
+.vertical{
+    width: 12px;
+    height: 100%;
+    top: 0;
+}
+.horizontal{
+    height: 12px;
+    width: 100%;
+    left: 0;
+}
+.border:nth-child(1){
+    left: 32%;
+}
+.border:nth-child(2){
+    left: 65%;
+}
+.border:nth-child(3){
+    top: 31%;
+}
+.border:nth-child(4){
+    top: 65%;
 }
